@@ -1,0 +1,32 @@
+
+
+body,html,ul,li,div,p,dl,li{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+button{
+    outline: none;
+    border:none;
+}
+input{
+    outline: none;
+}
+dt, dd {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+.overflow{
+    overflow: hidden;
+}

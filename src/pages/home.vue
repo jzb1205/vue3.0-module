@@ -1,7 +1,8 @@
 <template>
   <div id="home">
 	 <p>测试element-ui和layui：<el-button type="primary" @click='pop()'>element-btn</el-button></p>
-	 <p>测试moment：element-ui和layui{{time | timeFormat('YYYY-MM-DD hh:mm:ss')}}</p>
+	 <p>测试moment：{{time | timeFormat('YYYY-MM-DD hh:mm:ss')}}</p>
+
   </div>
 </template>
 
@@ -11,11 +12,15 @@ export default {
   data() {
   	return {
   		time: new Date(),
-		timer:null
+        timer:null,
+        arr: [1,2,3,4,2,5,3],
+        arr1: [[1,2],[3,4],[5,6],[7,8],[9,0],[3,4],[5,6]],
   	}
   },
   created(){
-	this.timer = this.timeChange()
+    this.timer = this.timeChange()
+    this.ArrWeightingOne(this.arr)
+    this.ArrWeightingTwo(this.arr1)
   },
   methods:{
 	  pop(){
@@ -34,7 +39,14 @@ export default {
 		  setInterval(()=>{
 			  this.time = new Date()
 		  },1000)
-	  }
+      },
+      ArrWeightingOne(arr){
+          console.log(this.$util.ArrWeightingOne(arr))  
+      },
+      ArrWeightingTwo(arr){
+          console.log(this.$util.ArrWeightingTwo(arr))  
+      }
+      
   },
   destoryed(){
 	  clearInterval(this.timer)

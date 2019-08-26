@@ -15,12 +15,16 @@ export default {
         timer:null,
         arr: [1,2,3,4,2,5,3],
         arr1: [[1,2],[3,4],[5,6],[7,8],[9,0],[3,4],[5,6]],
+        arr2: [1,2,3,4,2,5,3],
+        brr3: [1,2,3,4,2,5,3,6,7,8,9]
   	}
   },
   created(){
     this.timer = this.timeChange()
     this.ArrWeightingOne(this.arr)
     this.ArrWeightingTwo(this.arr1)
+    this.getDataFromTwoArr(this.arr2,this.brr3,0)
+    this.getDataFromTwoArr(this.arr2,this.brr3,1)
   },
   methods:{
 	  pop(){
@@ -45,6 +49,9 @@ export default {
       },
       ArrWeightingTwo(arr){
           console.log(this.$util.ArrWeightingTwo(arr))  
+      },
+      getDataFromTwoArr(arr1,arr2,type){
+          console.log(this.$util.getDataFromTwoArr(arr1,arr2,type))  
       }
       
   },

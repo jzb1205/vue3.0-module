@@ -1,7 +1,5 @@
 import common from './common'
 
-console.log(common)
-
 const util = {
     /**
      * 非空判断.

@@ -1,7 +1,7 @@
 const common = {
     /**
      * 字符串形式的坐标转化成数字型.
-     * @param {Array} data .
+     * @param {Array} data ["1,2", "3,4", "5,6", "7,8"] =>[[1,2], [3,4], [5,6], [7,8]]
      * @returns {Array} .
      */
     pointToArr: function (data) {

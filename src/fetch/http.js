@@ -11,41 +11,41 @@ axios.defaults.baseURL = '/api'
 
 axios.interceptors.request.use(
     config => {
-      let token = sessionStorage.getItem("token") || '';
-      if (token) {  
-        config.headers.Authorization = `${token}`;
-      }
-      return config;
+        let token = sessionStorage.getItem("token") || '';
+        if (token) {
+            config.headers.Authorization = `${token}`;
+        }
+        return config;
     },
     err => {
-      return Promise.reject(err);
+        return Promise.reject(err);
     }
 )
 axios.interceptors.request.use(
     config => {
-      let token = sessionStorage.getItem("token") || '';
-      if (token) {  
-        config.headers.Authorization = `${token}`;
-      }
-      return config;
+        let token = sessionStorage.getItem("token") || '';
+        if (token) {
+            config.headers.Authorization = `${token}`;
+        }
+        return config;
     },
     err => {
-      return Promise.reject(err);
+        return Promise.reject(err);
     }
 )
 axios.interceptors.response.use(function (response) {
     if (response.data.code === '003') {
         Message({
-            message:'登录信息超时，请重新登录!',
-            type:'error'
+            message: '登录信息超时，请重新登录!',
+            type: 'error'
         })
         return
     }
     return response;
-  }, function (error) {
+}, function (error) {
     // 对响应错误做点什么
     return Promise.reject(error);
-  });
+});
 /**
  * 封装post方法
  * @param url

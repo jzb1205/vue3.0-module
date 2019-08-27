@@ -1,3 +1,7 @@
+import common from './common'
+
+console.log(common)
+
 const util = {
     /**
      * 非空判断.
@@ -59,29 +63,43 @@ const util = {
     },
 
     /**
-     * 两坐标数组中筛选出相同的数和不同的数.
-     * @param {Array} arr1 [1,2,3,4,2,5,3].
-     * @param {Array} arr2 [1,2,3,4,2,5,3].
-     * @param {number} type 0=>不同数据，1=>相同数据.
-     * @returns {Array} The sum of the two numbers.
+     * 筛选出两坐标数组中不同的数.
+     * @param {Array} arr1 [[1, 2], [3, 4], [5, 6], [7, 8]].
+     * @param {Array} arr2 [[1, 2], [3, 4], [5, 6], [7, 8]].
+     * @returns {Array} dif.
      */
-    getDataFromTwoArr: function (arr1, arr2, type) {
-        if (!(Array.isArray(arr1) && Array.isArray(arr2))) {return}
+    getDataTwoArrDif: function (arr1, arr2) {
+        let combineData = arr1.concat(arr2)
+        let returnData
 
-        let difData = [],
-            samData = []
-
-        arr1.map(it => {
-            arr2.map(is => {
-                if (String(it) === String(is)) {
-                    samData.push(it)
-                } else {
-                    difData.push(it)
-                }
-            })
+        combineData = combineData.map(it => {
+            return it.join(',')
         })
+        returnData = combineData.filter(function(v, i, arr) {
+            return arr.indexOf(v) === arr.lastIndexOf(v)
+        })
+        return common.pointToArr(returnData) 
+    },
 
-        return type === 0 ? [...difData] : [...samData]
+    /**
+     * 筛选出两坐标数组中相同的数.
+     * @param {Array} arr1 [[1, 2], [3, 4], [5, 6], [7, 8]].
+     * @param {Array} arr2 [[1, 2], [3, 4], [5, 6], [7, 8]].
+     * @param {number} type 0=>去重 1=>不去重
+     * @returns {Array} sam.
+     */
+    getDataTwoArrSam: function (arr1, arr2, type=1) {
+        let newArr = []
+        for (let i = 0; i < arr2.length; i++) {
+            for (let j = 0; j < arr1.length; j++) {
+                if(arr1[j].join(',') === arr2[i].join(',')){
+                    newArr.push(arr1[j].join(','))
+                }
+            }
+        }
+        newArr = type === 0 ? [...new Set(newArr)]:newArr
+        
+        return common.pointToArr(newArr)
     }
 
 }

@@ -63,7 +63,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 
-#### eslint rules说明
+#### eslint rules说明 https://cloud.tencent.com/developer/section/1135814
 
 	
 	"off"或者0    //关闭规则关闭

@@ -59,7 +59,7 @@ const util = {
     },
 
     /**
-     * 两个一维数组中筛选出相同的数和不同的数.
+     * 两坐标数组中筛选出相同的数和不同的数.
      * @param {Array} arr1 [1,2,3,4,2,5,3].
      * @param {Array} arr2 [1,2,3,4,2,5,3].
      * @param {number} type 0=>不同数据，1=>相同数据.
@@ -73,7 +73,7 @@ const util = {
 
         arr1.map(it => {
             arr2.map(is => {
-                if (it.toString() === is.toString()) {
+                if (String(it) === String(is)) {
                     samData.push(it)
                 } else {
                     difData.push(it)
